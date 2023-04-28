@@ -1,0 +1,21 @@
+{
+  "name": "cypress-artifact-demo",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ui-regression": "cypress run --browser chrome --spec cypress/e2e/1-getting-started/**.js",
+    "ui-regression-allure": "cypress run --browser chrome --spec cypress/e2e/1-getting-started/**.js --env allure=true",
+    "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true",
+    "html-report": "cypress run --spec cypress/e2e/tests/test_demoqa.cy.js --browser chrome  --headed"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.38.3",
+    "cypress": "^12.11.0",
+    "cypress-mochawesome-reporter": "^3.4.0"
+  }
+}
